@@ -28,6 +28,11 @@ public class TestMultiBrowser {
 			driver=new InternetExplorerDriver();
 		}
 		
+		driver.get("https://letskodeit.teachable.com/p/practice");
+		String Title=driver.getTitle();
+		System.out.println(Title.length());
+		System.out.println(Title);
+		driver.quit();
 		
 
 	}
