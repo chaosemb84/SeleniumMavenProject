@@ -1,23 +1,20 @@
 package com.suntecautomation.testcases;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class TestDropDowns {
+public class TestResizable {
 	
-	public static WebDriver driver;
+public static WebDriver driver;
 	
-	public static String baseURl="https://www.wikipedia.org/";
+	public static String baseURl="https://jqueryui.com/resources/demos/resizable/default.html";
 
 	public static void main(String[] args) {
-		
 		WebDriverManager.chromedriver().setup();
 		driver=new ChromeDriver();
 		
@@ -25,8 +22,10 @@ public class TestDropDowns {
 		
 		driver.manage().window().maximize();
 		
-		WebElement dropdown=driver.findElement(By.id("searchLanguage"));
+		WebElement resizable=driver.findElement(By.xpath("//*[@id='resizable']/div[3]"));
 		
+		Actions action=new Actions(driver);
+		action.dragAndDropBy(resizable, 400, 400).perform();
 		
 	}
 
